@@ -1,0 +1,171 @@
+/*global style*/
+body{
+    background-color: #F7ECDE;
+    font-family: 'PT Sans Caption', sans-serif;
+}
+*::selection {
+    background-color: #FEC260;
+    color: #171717;
+}
+h1{
+    font-family: 'Pacifico', cursive;
+    color: #352e28;
+    font-size: 50px;
+    line-height: 60px;
+}
+
+h2{
+    font-family: 'Righteous', cursive; 
+    font-size: 25px;
+    line-height: 30px;
+}
+
+/* genral classes */
+.w-10{
+    width: 10%;
+}
+
+/*sec*/
+.newHr{
+    border-top: 2.5px dotted  black;
+}
+
+.divForm{
+    color: #212529;
+}
+
+.second-header{
+    background:linear-gradient(to right, #3ca55c, #b5ac49);
+    -webkit-background-clip: var(--bs-text-opacity);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: fit-content;
+    margin: auto;
+}
+header h1{
+    position: relative;
+    width: fit-content;
+    display: block;
+    margin: auto;
+    z-index: 5;
+    
+}
+header h1::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 35%;
+    background-color: #FEC260;
+    z-index: -1;
+    transition: all 0.3s;
+}
+header h1:hover:after{
+    height: 65%;
+}
+
+#submitBtn{
+    background-color: #d1512d;
+    color: white;
+    width: 10%;
+}
+#submitBtn:hover{
+    background-color: #bb4120;
+    color: white;
+}
+
+#dialogoverlay{
+    opacity: 0.8;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+}
+#dialogbox{
+    position: fixed;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    width: 35%;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 10;
+    margin: 8px;
+    padding: 20px;
+}
+#dialogboxhead{
+    font-size: 19px;
+    padding: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    color: #3ca55c;
+}
+#dialogboxbody{
+    padding: 10px;
+    color: #171717;
+}
+#closebtn{
+    cursor: pointer;
+}
+/*media qurey*/
+@media screen and (min-width:1200px) and (max-width:1399px) {
+    #dialogbox{
+        width: 40%;
+    }
+    #submitBtn{
+        width: 12%;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+    #dialogbox{
+        width: 45%;
+    }
+    #submitBtn{
+        width: 15%;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:991px) {
+    #dialogbox{
+        width: 60%;
+    }
+    #submitBtn{
+        width: 17%;
+    }
+}
+
+@media screen and (min-width:576px) and (max-width:767px) {
+    #dialogbox{
+        width: 80%;
+    }
+    #submitBtn{
+        width: 20%;
+    }
+}
+
+@media screen and (max-width:575px) { 
+    #dialogbox{
+        width: 90%;
+        left: 2.5%;
+        right: 2.5%;
+        transform: translate(0,-60%);
+    }
+    html{
+        font-size: 11px;
+    }
+    .second-header{
+        font-size: 22px;
+    }
+    #submitBtn{
+        width: 15%;
+    }
+}
+
+
+

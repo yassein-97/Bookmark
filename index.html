@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarker</title>
+    <!-- fonts (Pacifico,cursive,Righteous,PT Sans Caption)  -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap"
+        rel="stylesheet">
+    <!-- tap icon -->
+    <link rel="shortcut icon" href="images/bookmark.ico" type="image/x-icon">
+    <!-- website icons -->
+    <link rel="stylesheet" href="css/icons.css">
+    <!-- bootstrap css-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- main style -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="dialogoverlay" class="d-none"></div>
+    <div id="dialogbox" class="d-none">
+        <div id="dialogboxhead">
+            <i class="icon-circle text-danger"></i>
+            <i class="icon-circle text-warning"></i>
+            <i class="icon-circle text-success"></i>
+            <i id="closebtn" class="icon-close text-dark fs-4 float-end"></i>
+
+        </div>
+        <div id="dialogboxbody">
+            <p class="fs-5 fw-bold">Site Name or Url is not valid, Please follow the rules below :</p>
+
+            <p><i class="icon-arrow-circle-o-right text-danger"></i> Site name must contain at least 3 characters</p>
+            <p><i class="icon-arrow-circle-o-right text-danger"></i> Site URL must be a valid one</p>
+        </div>
+    </div>
+    <div class="container">
+        <header class="text-center my-5">
+            <h1>Bookmarker</h1>
+        </header>
+        <hr class="newHr">
+
+        <div class="divForm">
+            <h2 class="mb-4 second-header"> <i class="icon-bookmark"></i> Bookmark your favorite sites <i
+                    class="icon-bookmark"></i> </h2>
+
+            <label for="siteName"> <i class="icon-collections_bookmark"></i> Site Name</label>
+            <input class="form-control mb-3 " type="text" name="siteName" id="siteName" placeholder="Bookmark Name">
+
+            <label for="siteUrl"> <i class="icon-link"></i> Site URL</label>
+            <input class="form-control mb-3" type="text" name="siteUrl" id="siteUrl" placeholder="Website URL">
+
+            <button class="btn d-block mx-auto" id="submitBtn">submit</button>
+        </div>
+
+        <hr class="newHr">
+
+        <div class="divTable table-responsive my-5 text-center">
+            <table class="table table-light">
+                <thead>
+                    <tr>
+                        <th scope="col">Index</th>
+                        <th scope="col">Website Name</th>
+                        <th scope="col">Website Name</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="tBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- main js -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
