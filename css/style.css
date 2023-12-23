@@ -1,7 +1,18 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /*global style*/
 body{
     background-color: #F7ECDE;
     font-family: 'PT Sans Caption', sans-serif;
+}
+*::-moz-selection {
+    background-color: #FEC260;
+    color: #171717;
 }
 *::selection {
     background-color: #FEC260;
@@ -35,15 +46,21 @@ h2{
 }
 
 .second-header{
+    background:-webkit-gradient(linear, left top, right top, from(#3ca55c), to(#b5ac49));
+    background:-o-linear-gradient(left, #3ca55c, #b5ac49);
     background:linear-gradient(to right, #3ca55c, #b5ac49);
     -webkit-background-clip: var(--bs-text-opacity);
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     margin: auto;
 }
 header h1{
     position: relative;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     display: block;
     margin: auto;
@@ -59,6 +76,8 @@ header h1::after{
     height: 35%;
     background-color: #FEC260;
     z-index: -1;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
     transition: all 0.3s;
 }
 header h1:hover:after{
@@ -93,7 +112,9 @@ header h1:hover:after{
     top: 50%;
     left: 50%;
     right: 50%;
-    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
     z-index: 10;
     margin: 8px;
     padding: 20px;
@@ -154,7 +175,9 @@ header h1:hover:after{
         width: 90%;
         left: 2.5%;
         right: 2.5%;
-        transform: translate(0,-60%);
+        -webkit-transform: translate(0,-60%);
+            -ms-transform: translate(0,-60%);
+                transform: translate(0,-60%);
     }
     html{
         font-size: 11px;
@@ -166,6 +189,5 @@ header h1:hover:after{
         width: 15%;
     }
 }
-
 
 
