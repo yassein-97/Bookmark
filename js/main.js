@@ -14,7 +14,7 @@ if (localStorage.getItem("arrOfLinks") != null) {
   showData(arrayLinks);
 }
 
-// to add new website
+// to add new row
 function addToArray() {
   if(nameValidation() && urlValidation()){
     var website = {
@@ -24,7 +24,6 @@ function addToArray() {
     arrayLinks.push(website);
     localStorage.setItem("arrOfLinks", JSON.stringify(arrayLinks));
     showData();
-    // location.reload();//for delete
     clearData();
     siteName.classList.remove('is-valid');
     siteUrl.classList.remove('is-valid');
@@ -33,7 +32,7 @@ function addToArray() {
     dialogoverlay.classList.replace('d-none','d-block');
     dialogbox.classList.replace('d-none','d-block');
 
-  }
+  };
 }
 // fire addToArray
 submitBtn.addEventListener("click", addToArray);
@@ -56,61 +55,59 @@ function showData() {
   var tBody = document.querySelector("#tBody");
   var container = "";
   for (var i = 0; i < arrayLinks.length; i++) {
-    container += `
-        <tr id="${i}">
+    // container += `
+    //     <tr id="${i}">
+    //         <td scope="row">${i + 1}</td>
+    //         <td>${arrayLinks[i].name}</td>
+    //         <td><a href="${
+    //           arrayLinks[i].url
+    //         }" target="_blank" class="btn btn-outline-success"><i class="icon-eye"></i> Visit</a></td>
+    //         <td><button onclick="deleteRow(${i})" class="deleteBtn btn btn-outline-danger"><i class="icon-trash-o"></i> Delete</button></td>
+    //      </tr>
+    //     `;
+
+        container += `
+        <tr>
             <td scope="row">${i + 1}</td>
             <td>${arrayLinks[i].name}</td>
             <td><a href="${
               arrayLinks[i].url
             }" target="_blank" class="btn btn-outline-success"><i class="icon-eye"></i> Visit</a></td>
-            <td><button onclick="deleteRow(${i})" class="deleteBtn btn btn-outline-danger"><i class="icon-trash-o"></i> Delete</button></td>
+            <td><button id="${i}" class="deleteBtn btn btn-outline-danger"><i class="icon-trash-o"></i> Delete</button></td>
          </tr>
         `;
   }
   tBody.innerHTML = container;
-}
+
+  var deleteBtn = document.querySelectorAll(".deleteBtn");
+  for (var i = 0; i < arrayLinks.length; i++) {
+    deleteBtn[i].addEventListener("click", function (eventInfo) {
+      var btnTarget = eventInfo.target;
+      var index = btnTarget.getAttribute("id");
+      deleteFromTable(index);
+      showData();
+    });
+  };
+};
 
 // clear form after addtion
 function clearData() {
   siteName.value = "";
   siteUrl.value = "";
-}
+};
 
 //to delete from table
-function deleteRow(x){
-    arrayLinks.splice(x,1);
-    localStorage.setItem('arrOfLinks',JSON.stringify(arrayLinks))
-    showData();
-}
+// function deleteRow(x){
+//     arrayLinks.splice(x,1);
+//     localStorage.setItem('arrOfLinks',JSON.stringify(arrayLinks))
+//     showData();
+// }
 
-
-//delete
-/*var index = 0;
-var deleteBtn = document.querySelectorAll(".deleteBtn");
-for (var i = 0; i < arrayLinks.length; i++) {
-  deleteBtn[i].addEventListener("click", function (eventInfo) {
-    var x = eventInfo.target.parentElement;
-    var y = x.parentElement;
-    index = y.getAttribute("id");
-    deleteFromTable(index);
-    showData();
-  });
-}
-
-function deleteFromTable(x) {
-  arrayLinks.splice(x, 1);
+function deleteFromTable(index) {
+  arrayLinks.splice(index, 1);
   localStorage.setItem("arrOfLinks", JSON.stringify(arrayLinks));
   showData();
-  location.reload();
-}*/
-
-// clicktBtn.addEventListener('click',function(){
-//   Swal.fire({
-//     icon: "error",
-//     title: "Oops...",
-//     text: "Something went wrong!",
-//   });
-// })
+};
 
 // validate website name
 function nameValidation(){
@@ -124,7 +121,7 @@ function nameValidation(){
     siteName.classList.add('is-invalid');
   }
   return flagName;
-}
+};
 //fire nameValidation
 siteName.addEventListener("keyup",nameValidation);
 
@@ -139,15 +136,8 @@ function urlValidation(){
   }
   else{
     siteUrl.classList.add('is-invalid');
-  }
+  };
   return flagUrl;
-}
+};
 // fire urlValidation
 siteUrl.addEventListener("keyup",urlValidation);
-
-
-
-
-
-
-
